@@ -115,8 +115,7 @@ in stdenv.mkDerivation rec {
 
     for f in misc/*.policy.in \
              scripts/*.pl* \
-             scripts/ZoneMinder/lib/ZoneMinder/Memory.pm.in \
-             scripts/ZoneMinder/lib/ZoneMinder/Event.pm.in; do
+             scripts/ZoneMinder/lib/ZoneMinder/Memory.pm.in ; do
       substituteInPlace $f \
         --replace '/usr/bin/perl' '${perlBin}' \
         --replace '/bin:/usr/bin' "$out/bin:${lib.makeBinPath [ coreutils procps psmisc ]}"
